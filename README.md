@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hub do Caio — back-end
 
-## Getting Started
+API de acompanhamento de clientes (patrimônio, evolução, distribuição) alimentada
+pela planilha mensal do Caio. Next.js 16 + TypeScript, Postgres no Neon, Drizzle
+e Auth.js (usuário único). O contrato da API está em
+[docs/api-contract.md](docs/api-contract.md).
 
-First, run the development server:
+## Primeiros passos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. `npm install`
+2. Crie um projeto no [Neon](https://neon.com) e copie a connection string.
+3. `cp .env.example .env.local` e preencha:
+   - `DATABASE_URL`: a connection string do Neon.
+   - `AUTH_SECRET`: `npx auth secret` (ou `openssl rand -base64 32`).
+   - `ADMIN_EMAIL` e `ADMIN_PASSWORD_HASH`: rode `npm run hash-password` e cole o resultado.
+     No `.env.local` o `$` do hash precisa de barra (`\$`); o script já imprime assim.
+4. `npm run db:migrate` (cria as tabelas no Neon).
+5. `npm run dev`, depois entre em `/api/auth/signin`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Na Vercel, cadastre as mesmas 4 variáveis (o hash vai sem barras) e rode
+`npm run db:migrate` uma vez com o `DATABASE_URL` de produção.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | O que faz |
+|---|---|
+| `npm run dev` / `build` / `start` | Next.js |
+| `npm test` | Testes (parser, cálculos e integração com Postgres em memória) |
+| `npm run typecheck` / `lint` | Verificações estáticas |
+| `npm run db:generate` | Gera migration a partir de `src/db/schema.ts` |
+| `npm run db:migrate` | Aplica as migrations em `drizzle/` no banco |
+| `npm run hash-password` | Gera o hash da senha do login |
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+- `src/db/schema.ts`: tabelas (clientes, saldos, diversificação, tarefas, notas, uploads).
+- `src/lib/import/`: leitura da planilha (`parse-workbook`) e gravação idempotente (`apply-import`).
+- `src/lib/metrics.ts`: cálculos (funções puras) e o filtro do modo apresentação.
+- `src/app/api/`: rotas. Todas passam por `protectedRoute` (exige login).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Dados de clientes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Planilhas (`*.xlsx`, `*.csv`) e `.env*` estão no `.gitignore`. Nunca versionar
+dados reais de clientes.
 
-## Deploy on Vercel
+## Pendências de negócio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Confirmar com o Caio o significado de **CI** e **INT.** na diversificação.
+- Aportes planejados × realizados, objetivos e rentabilidade real dependem de
+  dados que a planilha não tem (fora do escopo desta versão).
