@@ -1,0 +1,120 @@
+.grid {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 8px;
+}
+
+.eixoY {
+  position: relative;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.eixoY span {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.area {
+  position: relative;
+}
+
+.svg {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.zona {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.guia,
+.ponto,
+.balao {
+  position: absolute;
+  pointer-events: none;
+  animation-delay: 1.9s;
+  transition:
+    left 0.3s var(--ease),
+    top 0.3s var(--ease);
+}
+
+.guia {
+  bottom: 10px;
+  border-left: 1px dashed #17191a40;
+}
+
+.ponto {
+  width: 14px;
+  height: 14px;
+  border-radius: 99px;
+  background: var(--tomato);
+  border: 3px solid var(--on-ink);
+  box-shadow: 0 2px 10px #281e1440;
+  transform: translate(-50%, -50%);
+}
+
+.balao {
+  --tx: -50%;
+  transform: translate(var(--tx), calc(-100% - 16px));
+  background: var(--ink);
+  color: var(--on-ink);
+  border-radius: 14px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+
+.balao[data-lado="esq"] {
+  --tx: -12%;
+}
+
+.balao[data-lado="dir"] {
+  --tx: -88%;
+}
+
+.balaoData {
+  font-size: 12px;
+  color: #c9cbc6;
+}
+
+.balaoValor {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.eixoX {
+  position: relative;
+  height: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.eixoX span {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.eixoX span[data-lado="esq"] {
+  transform: none;
+}
+
+.eixoX span[data-lado="dir"] {
+  transform: translateX(-100%);
+}
+
+.vazio {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}

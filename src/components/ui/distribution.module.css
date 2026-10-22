@@ -1,0 +1,75 @@
+.blocos {
+  display: flex;
+  gap: 6px;
+  height: 48px;
+}
+
+.bloco {
+  flex-basis: 0;
+  min-width: 18px;
+  border-radius: 14px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto 48px;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.ponto {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+}
+
+.valor {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.pct {
+  text-align: right;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.barra {
+  display: flex;
+  gap: 3px;
+  height: 8px;
+}
+
+.barra > span {
+  flex-basis: 0;
+  min-width: 4px;
+  border-radius: 99px;
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.legenda > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legenda .ponto {
+  width: 9px;
+  height: 9px;
+}
