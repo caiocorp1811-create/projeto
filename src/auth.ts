@@ -17,7 +17,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const email = String(credentials?.email ?? "").trim().toLowerCase();
         const password = String(credentials?.password ?? "");
         const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
-        const adminHash = process.env.ADMIN_PASSWORD_HASH;
+        // Aceita o hash com as barras do .env.local (`\$2b\$...`) caso alguém o cole assim na Vercel;
+        // um hash bcrypt nunca contém `\`, `"`, `'` nem espaços.
+        const adminHash = process.env.ADMIN_PASSWORD_HASH?.replace(/[\\"'\s]/g, "");
         if (!adminEmail || !adminHash || !password) return null;
 
         const passwordOk = await bcrypt.compare(password, email === adminEmail ? adminHash : DUMMY_HASH);
