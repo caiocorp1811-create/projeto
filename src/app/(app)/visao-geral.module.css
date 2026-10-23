@@ -163,7 +163,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-.anelCentro span {
+.anelCentro > span {
   font-size: 13px;
   color: #d8e3dd;
 }
