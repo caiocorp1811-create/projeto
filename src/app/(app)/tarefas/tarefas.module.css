@@ -1,0 +1,119 @@
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.listaCard {
+  flex: 2 1 520px;
+  padding: 18px 16px 12px;
+}
+
+.filtroCliente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filtroCliente select {
+  max-width: 260px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 14px;
+}
+
+.progresso {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.progresso strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.trilho {
+  height: 6px;
+  border-radius: 99px;
+  background: #17191a14;
+  overflow: hidden;
+}
+
+.trilho span {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--pine);
+  transition: width 0.6s var(--ease);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.lado {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form {
+  background: var(--glass-2);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.erro {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tomato);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.tile {
+  border-radius: var(--r-tile);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 13px;
+}
+
+.tile[data-tom="tomato"] {
+  background: var(--tomato);
+}
+
+.tile[data-tom="butter"] {
+  background: var(--butter);
+  color: var(--ink);
+}
+
+.tile strong {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}

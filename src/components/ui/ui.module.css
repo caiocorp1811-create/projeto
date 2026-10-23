@@ -1,0 +1,225 @@
+/* Peças visuais compartilhadas entre as telas internas. */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.card {
+  min-width: 0;
+  background: var(--glass);
+  border: 1px solid var(--rim);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+}
+
+.cardTitle {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.muted {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.bigNumber {
+  font-size: clamp(34px, 3.4vw, 46px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+
+.roundBtn {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-pill);
+  background: var(--glass-2);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.roundBtn:hover {
+  background: var(--glass-3);
+}
+
+.inkBtn {
+  height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.inkBtn:hover {
+  background: #2a2d2e;
+}
+
+.inkBtn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.ghostBtn {
+  height: 44px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--rim);
+  border-radius: var(--r-pill);
+  background: #ffffff94;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ghostBtn:hover {
+  background: var(--glass-3);
+}
+
+.chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--well);
+  white-space: nowrap;
+}
+
+.chipPine {
+  background: var(--pine);
+  color: var(--on-ink);
+}
+
+.chipTomato {
+  background: var(--tomato);
+  color: var(--on-ink);
+}
+
+.chipButter {
+  background: var(--butter);
+  color: var(--ink);
+}
+
+.chipInk {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.empty {
+  padding: 32px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.empty span {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 16px;
+  transition: background-color 0.2s;
+}
+
+.listRow:hover {
+  background: #ffffff94;
+}
+
+.avatar {
+  flex: none;
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.input {
+  height: 46px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  padding: 0 18px;
+  font-size: 15px;
+  background: #ffffff94;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--ink);
+  background: var(--glass-3);
+  box-shadow: 0 0 0 4px #17191a14;
+}
+
+.segmented {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-pill);
+  background: var(--well);
+}
+
+.segmented button {
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+}
+
+.segmented button[aria-pressed="true"],
+.segmented button[aria-selected="true"] {
+  background: var(--ink);
+  color: var(--on-ink);
+}

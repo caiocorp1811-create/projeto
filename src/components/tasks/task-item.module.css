@@ -1,0 +1,151 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px 4px 0;
+  border-radius: 16px;
+  list-style: none;
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+
+.item:hover {
+  background: #ffffff94;
+}
+
+.item[data-pendente] {
+  opacity: 0.65;
+}
+
+.check {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.caixa {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 2px solid #17191a40;
+  background: var(--glass-2);
+  color: var(--on-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.caixa[data-feita] {
+  background: var(--pine);
+  border-color: var(--pine);
+}
+
+.texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titulo {
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  transition: color 0.2s;
+}
+
+.titulo[data-feita] {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cliente {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+a.cliente:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.mini {
+  width: 18px;
+  height: 18px;
+  border-radius: 99px;
+  font-size: 9px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selo {
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: var(--r-pill);
+  background: var(--well);
+  white-space: nowrap;
+}
+
+.feita {
+  background: var(--pine);
+  color: var(--on-ink);
+}
+
+.atrasada {
+  background: var(--tomato);
+  color: var(--on-ink);
+}
+
+.semana {
+  background: var(--butter);
+}
+
+.lixo {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.item:hover .lixo,
+.lixo:focus-visible {
+  opacity: 1;
+}
+
+.lixo:hover {
+  background: #c8431f1f;
+}

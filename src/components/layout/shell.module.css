@@ -1,0 +1,301 @@
+.shell {
+  min-height: 100vh;
+  padding: 20px var(--gutter) 56px;
+}
+
+/* ---- topo ---- */
+
+.topbar {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: var(--ink);
+  color: var(--on-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-radius: var(--r-pill);
+  background: var(--glass);
+  border: 1px solid var(--rim);
+}
+
+.navPill {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 44px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navPill[data-pronta] {
+  transition:
+    transform 0.5s var(--ease),
+    width 0.5s var(--ease),
+    opacity 0.2s;
+}
+
+.navLink {
+  position: relative;
+  flex: none;
+  height: 44px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--r-pill);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    color 0.35s var(--ease),
+    background-color 0.2s;
+}
+
+.navLink:not([aria-current]):hover {
+  background: var(--glass-2);
+}
+
+.navLink[aria-current] {
+  color: var(--on-ink);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roundBtn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-pill);
+  background: var(--glass-2);
+  border: 1px solid var(--rim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roundBtn:hover {
+  background: var(--glass-3);
+}
+
+.badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  border: 2px solid var(--on-ink);
+  background: var(--tomato);
+  color: var(--on-ink);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2.2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 67, 31, 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 7px rgba(200, 67, 31, 0);
+  }
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-pill);
+  background: var(--pine);
+  color: var(--on-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---- corpo: barra de atalhos + conteúdo ---- */
+
+.body {
+  max-width: 1400px;
+  margin: 28px auto 0;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.dock {
+  position: sticky;
+  top: 20px;
+  flex: none;
+  width: 60px;
+  padding: 10px 8px;
+  border-radius: 30px;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+}
+
+.dockItem {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--on-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.2s var(--ease);
+}
+
+.dockItem:hover {
+  background: #303435;
+}
+
+.dockItem:active {
+  transform: scale(0.92);
+}
+
+/* rótulo que aparece ao lado do ícone */
+.dockItem::after {
+  content: attr(data-label);
+  position: absolute;
+  left: calc(100% + 14px);
+  top: 50%;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-6px, -50%);
+  transition:
+    opacity 0.2s,
+    transform 0.25s var(--ease);
+}
+
+.dockItem:hover::after,
+.dockItem:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.dockSep {
+  width: 24px;
+  border: 0;
+  border-top: 1px solid #ffffff2e;
+  margin: 4px 0;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* no celular a barra de atalhos flutua embaixo, na horizontal */
+@media (max-width: 760px) {
+  .shell {
+    padding-bottom: 110px;
+  }
+
+  .topbar {
+    justify-content: space-between;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .navLink {
+    flex: 1 0 auto;
+    justify-content: center;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .body {
+    margin-top: 20px;
+  }
+
+  .dock {
+    position: fixed;
+    top: auto;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    flex-direction: row;
+    padding: 8px 10px;
+    box-shadow: var(--shadow-pop);
+  }
+
+  .dockSep {
+    width: 1px;
+    height: 24px;
+    border-top: 0;
+    border-left: 1px solid #ffffff2e;
+    margin: 0 4px;
+  }
+
+  .dockItem::after {
+    display: none;
+  }
+}

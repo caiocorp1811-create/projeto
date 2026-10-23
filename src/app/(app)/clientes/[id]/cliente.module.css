@@ -1,0 +1,306 @@
+.voltar {
+  align-self: flex-start;
+  height: 40px;
+  padding: 0 16px 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--r-pill);
+  background: #ffffff94;
+  border: 1px solid var(--rim);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.voltar:hover {
+  background: var(--glass-3);
+}
+
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.identidade {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  font-size: 24px;
+}
+
+.nomeBloco {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.nomeLinha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.nome {
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.painel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aviso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: var(--butter);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.aviso svg {
+  flex: none;
+}
+
+.patrimonio {
+  flex: 1.7 1 520px;
+}
+
+.destaque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+}
+
+.lado {
+  flex: 1 1 300px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bloco {
+  flex: 1;
+  border-radius: var(--r-card);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--on-ink);
+}
+
+.pine {
+  background: var(--pine);
+}
+
+.ink {
+  background: var(--ink);
+}
+
+.bloco strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.blocoTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.blocoChip {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: #ffffff24;
+}
+
+.blocoBase {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #d8e3dd;
+}
+
+.blocoValor {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--on-ink);
+}
+
+.terco {
+  flex: 1 1 320px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0 -8px;
+}
+
+/* ---- notas ---- */
+
+.notaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notaForm textarea {
+  width: 100%;
+  border: 1px solid var(--line-2);
+  border-radius: 18px;
+  padding: 12px 16px;
+  font-size: 15px;
+  background: #ffffff94;
+  resize: vertical;
+}
+
+.notaForm textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 4px #17191a14;
+}
+
+.notaForm button {
+  align-self: flex-end;
+  height: 40px;
+}
+
+.notaForm button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.erro {
+  font-size: 13px;
+  color: var(--tomato);
+  font-weight: 600;
+}
+
+.notas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notas li {
+  padding: 10px 12px 12px 14px;
+  border-radius: 16px;
+  background: #17191a0a;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notaTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.notaLixo {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 99px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.notaLixo:hover {
+  opacity: 1;
+  background: #c8431f1f;
+}
+
+.notaTexto {
+  font-size: 15px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---- histórico ---- */
+
+.tabelaBox {
+  background: var(--glass);
+  border: 1px solid var(--rim);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabela th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 12px 18px;
+}
+
+.tabela td {
+  padding: 13px 18px;
+  border-top: 1px solid #17191a12;
+}
+
+.tabela th:not(:first-child),
+.tabela td:not(:first-child) {
+  text-align: right;
+}
+
+.pos {
+  color: var(--good);
+}
+
+.neg {
+  color: var(--tomato);
+}

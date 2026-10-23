@@ -1,0 +1,248 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.busca {
+  flex: 1 1 240px;
+  max-width: 360px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.busca svg {
+  position: absolute;
+  left: 16px;
+  color: var(--muted);
+}
+
+.busca input {
+  width: 100%;
+  padding-left: 42px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filtros button {
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--rim);
+  border-radius: var(--r-pill);
+  background: #ffffff94;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filtros button:hover {
+  background: var(--glass-3);
+}
+
+.filtros button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-ink);
+}
+
+.qtd {
+  margin-left: 4px;
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+
+.espaco {
+  flex: 1;
+}
+
+.select {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+/* ---- grade ---- */
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.cartao {
+  background: var(--glass);
+  border: 1px solid var(--rim);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cartao:hover {
+  background: #ffffffb8;
+}
+
+.cartaoTopo,
+.cartaoBase {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cartaoBase {
+  align-items: center;
+}
+
+.nomeBloco {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nome {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.poco {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #17191a0d;
+}
+
+.poco > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.poco strong {
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.semDist {
+  display: flex;
+  align-items: center;
+  height: 8px;
+  font-size: 12px;
+}
+
+.seta {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: var(--glass-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pos {
+  color: var(--good);
+}
+
+.neg {
+  color: var(--tomato);
+}
+
+/* ---- tabela ---- */
+
+.tabelaBox {
+  background: var(--glass);
+  border: 1px solid var(--rim);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+}
+
+.tabela th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 12px 14px;
+}
+
+.tabela td {
+  padding: 10px 14px;
+  border-top: 1px solid #17191a12;
+  vertical-align: middle;
+}
+
+.tabela tbody tr {
+  transition: background-color 0.2s;
+}
+
+.tabela tbody tr:hover {
+  background: #ffffff94;
+}
+
+.tabela .num {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabela td.num {
+  display: table-cell;
+}
+
+.tabela td.num > * {
+  display: block;
+}
+
+.celulaNome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.celulaNome > span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.celulaNome:hover strong {
+  text-decoration: underline;
+}
+
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 0 6px;
+}
