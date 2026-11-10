@@ -15,6 +15,7 @@ export default auth((req) => {
 });
 
 export const config = {
-  // tudo menos a API, os arquivos do Next e arquivos com extensão (favicon, imagens…)
-  matcher: ["/((?!api|_next/static|_next/image|.*\\..*).*)"],
+  // tudo menos a API, os arquivos do Next, arquivos com extensão (favicon, imagens…)
+  // e a /sinuca, que é pública de propósito (jogo escondido, sem dados de clientes)
+  matcher: ["/((?!api|sinuca$|_next/static|_next/image|.*\\..*).*)"],
 };
