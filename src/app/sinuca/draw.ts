@@ -222,3 +222,26 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   ctx.arcTo(x, y, x + w, y, r);
   ctx.closePath();
 }
+
+/** Rotação cantada: anel na caçapa escolhida, ou anéis piscando enquanto falta escolher. */
+export function drawPocketMarks(ctx: CanvasRenderingContext2D, called: number | null, awaiting: boolean, t: number) {
+  ctx.save();
+  POCKETS.forEach((p, i) => {
+    const r = (p.r > 25 ? 25 : 21) + 6;
+    if (i === called) {
+      ctx.strokeStyle = "#f2c94c";
+      ctx.lineWidth = 4;
+      ctx.setLineDash([]);
+    } else if (awaiting) {
+      ctx.strokeStyle = `rgba(242,201,76,${0.3 + 0.3 * Math.sin(t / 260)})`;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 5]);
+    } else {
+      return;
+    }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    ctx.stroke();
+  });
+  ctx.restore();
+}

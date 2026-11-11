@@ -40,9 +40,14 @@ const inCornerMouth = (along: number, length: number) =>
 const inLongRailMouth = (x: number) => inCornerMouth(x, W) || Math.abs(x - W / 2) < SIDE_MOUTH;
 
 /** O que aconteceu durante a tacada (acumulado entre os passos). */
-export type ShotEvents = { firstHit: number | null; potted: number[] };
+export type ShotEvents = {
+  firstHit: number | null;
+  potted: number[];
+  /** Índice em POCKETS da caçapa onde cada bola caiu. */
+  pocketOf: Record<number, number>;
+};
 
-export const newShotEvents = (): ShotEvents => ({ firstHit: null, potted: [] });
+export const newShotEvents = (): ShotEvents => ({ firstHit: null, potted: [], pocketOf: {} });
 
 export function isMoving(balls: Ball[]): boolean {
   return balls.some((b) => b.inPlay && (b.vx !== 0 || b.vy !== 0));
@@ -76,10 +81,16 @@ function bounceY(b: Ball, wallY: number, into: 1 | -1) {
 }
 
 function pot(b: Ball, ev: ShotEvents) {
+  // caçapa mais próxima (a bola que "escapou" da mesa também conta na mais perto)
+  let pocket = 0;
+  POCKETS.forEach((p, i) => {
+    if (Math.hypot(b.x - p.x, b.y - p.y) < Math.hypot(b.x - POCKETS[pocket].x, b.y - POCKETS[pocket].y)) pocket = i;
+  });
   b.inPlay = false;
   b.vx = 0;
   b.vy = 0;
   ev.potted.push(b.id);
+  ev.pocketOf[b.id] = pocket;
 }
 
 function substep(balls: Ball[], h: number, ev: ShotEvents) {
